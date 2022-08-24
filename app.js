@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 mongoose.connect('mongodb+srv://dbUser:srbUeTdHIek0YdSz@cluster0.bqqyvuz.mongodb.net/travels', {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(express.json());
 let imageStorage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null, 'public/images'),
+    destination: (req, file, cb) => cb(null, 'public/images'), 
     filename: (req, file, cb) => cb(null, file.originalname)
 });
 
@@ -58,4 +58,5 @@ app.get('/login', (req, resp) => {
     }
 })
 
-app.listen(3000, () => console.log('Listening 3000...'));
+let port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening ${port}...`));
