@@ -9,10 +9,11 @@ let emailsRouter = require('./routes/emails.route');
 let usersRouter = require('./routes/users.route');
 let Post = require('./models/post.model').Post;
 let auth = require('./controllers/auth');
+require('dotenv').config()
 
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb+srv://dbUser:srbUeTdHIek0YdSz@cluster0.bqqyvuz.mongodb.net/travels', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(express.json());
 let imageStorage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'public/images'), 
