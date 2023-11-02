@@ -13,7 +13,7 @@ require('dotenv').config()
 
 app.set('view engine', 'ejs');
 
-mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://naruto:00ItJZxb84K7M1ls@cluster0.knzcrwb.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(express.json());
 let imageStorage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'public/images'), 
