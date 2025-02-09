@@ -13,7 +13,8 @@ require('dotenv').config()
 
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb+srv://naruto:00ItJZxb84K7M1ls@cluster0.knzcrwb.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+
+mongoose.connect(process.env.SECRET_KEY);
 app.use(express.json());
 let imageStorage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'public/images'), 
@@ -59,5 +60,5 @@ app.get('/login', (req, resp) => {
     }
 })
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT;
 app.listen(port, () => console.log(`Listening ${port}...`));
