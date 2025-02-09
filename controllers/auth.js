@@ -10,7 +10,7 @@ function generateToken(user) {
 
 function checkToken(token) {
     try {
-        let result = jwt.verify(token, process.env.SECRETc);
+        let result = jwt.verify(token, process.env.SECRET);
         return result;
     } catch(error) {
         return false;
